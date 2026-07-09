@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and runs
+log/
+runs/
+save/
+*.log
+
+# Datasets (large files)
+datasets/*.h5
+datasets/*.npz
+
+# TensorBoard
+events.out.tfevents*
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Model checkpoints
+*.pth
+*.pt
