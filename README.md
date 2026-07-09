@@ -37,7 +37,7 @@ abstract = {The three-dimensional packing problem (3D-PP) is a classic NP-hard p
 ### 1. 克隆仓库
 
 ```bash
-git clone https://github.com/yourname/3D-Bin-Packing-PPO.git
+git clone https://github.com/m93821053-droid/MBS3DBPP.git
 cd 3D-Bin-Packing-PPO
 ```
 
