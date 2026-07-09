@@ -14,6 +14,11 @@
 - **可视化输出**：内置 Plotly 3D 绘图，可调用直观展示装箱布局。
 
 ---
+
+## 🖥️ 系统要求
+
+- **操作系统**：Linux
+
 ## 📚 核心参考文献
 
 本项目的算法设计主要基于以下工作：
@@ -41,12 +46,49 @@ git clone https://github.com/m93821053-droid/MBS3DBPP.git
 cd 3D-Bin-Packing-PPO
 ```
 
-### 2. 安装依赖
+### 2. 安装依赖（Linux 环境）
 
+请按以下步骤逐步配置 Python 虚拟环境并安装所有依赖库：
+
+#### Step 1: 检查 Python 版本
+确保系统已安装 Python 3.8 ~ 3.10（推荐 3.9）：
 ```bash
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
+python3 --version
+```
+若版本过低或未安装，请先安装（Ubuntu/Debian 示例）：
+```bash
+sudo apt update
+sudo apt install python3.9 python3.9-venv python3.9-dev -y
+```
+
+#### Step 2: 创建并激活虚拟环境
+在项目根目录下执行：
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+激活后，命令行前缀会显示 `(venv)`，表示当前处于虚拟环境中。
+
+#### Step 3: 升级 pip 和 setuptools
+```bash
+pip install --upgrade pip setuptools wheel
+```
+
+#### Step 4: 安装项目依赖
+```bash
 pip install -r requirements.txt
+```
+该文件已包含 PyTorch 2.6.0 + CUDA 11.8 版本（若您的系统无 NVIDIA GPU，可手动修改为 CPU 版本，或安装后运行 `pip uninstall torch` 再安装 `torch --index-url https://download.pytorch.org/whl/cpu`）。
+
+#### Step 5: 验证 GPU 可用性（可选）
+```bash
+python -c "import torch; print('CUDA available:', torch.cuda.is_available())"
+```
+若输出 `True`，则表明 GPU 可用；若为 `False`，训练将自动使用 CPU（但速度会明显降低）。
+
+#### Step 6: 退出虚拟环境（训练/测试结束后）
+```bash
+deactivate
 ```
 
 ### 3. 生成测试数据集（可选）
@@ -162,5 +204,3 @@ plotResult(packing_result, bin_size_x=100, bin_size_y=100, bin_size_z=100)
 
 ---
 
-**Happy Packing! 🎯**
-```
